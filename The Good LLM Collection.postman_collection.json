@@ -1,0 +1,102 @@
+{
+	"info": {
+		"_postman_id": "b2246bf3-8328-483c-984b-c3e301ed6d05",
+		"name": "The Good LLM Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20602696"
+	},
+	"item": [
+		{
+			"name": "Deepseek",
+			"item": [
+				{
+					"name": "ChatCompletion",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <Token>",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"deepseek-chat\",\r\n    \"messages\": [\r\n        {\"role\": \"system\", \"content\": \"You are a helpful assistant.\"},\r\n        {\"role\": \"user\", \"content\": \"Hello!\"}\r\n    ],\r\n    \"stream\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.deepseek.com/chat/completions",
+							"protocol": "https",
+							"host": [
+								"api",
+								"deepseek",
+								"com"
+							],
+							"path": [
+								"chat",
+								"completions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Anthropic",
+			"item": [
+				{
+					"name": "Messages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "$ANTHROPIC_API_KEY"
+							},
+							{
+								"key": "anthropic-version",
+								"value": "2023-06-01"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"model\": \"claude-3-5-sonnet-20241022\",\r\n    \"max_tokens\": 1024,\r\n    \"messages\": [\r\n        {\"role\": \"user\", \"content\": \"Hello, world\"}\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.anthropic.com/v1/messages",
+							"protocol": "https",
+							"host": [
+								"api",
+								"anthropic",
+								"com"
+							],
+							"path": [
+								"v1",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
